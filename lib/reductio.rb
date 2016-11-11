@@ -10,4 +10,8 @@ module Reductio
       }
     }
   }
+
+  Map = proc { |function, mappable|
+    mappable.map(&function)
+  }.curry
 end
