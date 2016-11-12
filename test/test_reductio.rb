@@ -24,7 +24,7 @@ class ReductioTest < Minitest::Test
     assert_equal test_compose.(2), 4, 'composing two incs should add 2'
   end
 
-  def test_compose_handles_nore_than_two_arguments
+  def test_compose_handles_more_than_two_arguments
     inc = proc { |x| x + 1 }
     test_compose = Reductio::Compose.(inc, inc, inc)
 
@@ -34,7 +34,6 @@ class ReductioTest < Minitest::Test
   def test_map_does_what_we_expect
     inc = proc { |x| x + 1 }
     test_array = [1,2,3]
-    test_set = Set.new [1,2,3]
 
     assert_equal Reductio::Map.(inc, test_array), [2,3,4], 'it should map over an array'
     assert_equal Reductio::Map.(inc, test_array), [2,3,4], 'it should map over any object that has a map method'
